@@ -1,0 +1,22 @@
+[
+  {
+    "pertanyaan": "apa itu cashmate",
+    "jawaban": "CashMate adalah aplikasi pencatatan keuangan yang membantu kamu mengelola pemasukan dan pengeluaran secara efisien."
+  },
+  {
+    "pertanyaan": "bagaimana cara menambahkan catatan",
+    "jawaban": "Pergi ke halaman dashboard lalu klik tombol ➕ Tambah Catatan. Kamu bisa memilih jenis (pemasukan/pengeluaran), jumlah, dan kategori."
+  },
+  {
+    "pertanyaan": "tips mengatur keuangan",
+    "jawaban": "Beberapa tips: 1) Catat semua pengeluaran, 2) Buat anggaran bulanan, 3) Sisihkan minimal 10% dari pemasukan untuk tabungan."
+  },
+  {
+    "pertanyaan": "apakah data saya aman",
+    "jawaban": "Tentu! Semua data disimpan secara lokal dan tidak dibagikan ke pihak ketiga."
+  },
+  {
+    "pertanyaan": "fitur yang tersedia",
+    "jawaban": "Fitur CashMate: Dashboard keuangan, tambah/edit catatan, laporan visual, kalkulator, dan bot literasi!"
+  }
+]
