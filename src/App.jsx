@@ -1,4 +1,5 @@
-// src/App.jsx
+// File: src/App.jsx
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -16,6 +17,7 @@ import KalkulatorPage from "./pages/KalkulatorPage";
 import ZakatMal from './pages/kalkulator/ZakatMal';
 import ProfilRisiko from './pages/kalkulator/ProfilRisiko';
 import Investasi from './pages/kalkulator/Investasi';
+import ArticleDetailPage from './pages/ArticleDetailPage'; // Import ArticleDetailPage
 
 import MainLayout from './components/MainLayout';
 
@@ -34,7 +36,12 @@ function App() {
         <Route path="/tambah-catatan" element={<MainLayout activePage="dashboard"><TambahCatatanPage /></MainLayout>} />
         <Route path="/edit-catatan/:id" element={<MainLayout activePage="dashboard"><EditCatatanPage /></MainLayout>} />
         <Route path="/laporan" element={<MainLayout activePage="laporan"><LaporanKeuangan /></MainLayout>} />
+        
+        {/* Rute untuk halaman detail artikel HARUS DITEMPATKAN SEBELUM rute halaman daftar literasi */}
+        <Route path="/literasi/:id" element={<MainLayout activePage="literasi"><ArticleDetailPage /></MainLayout>} />
+        {/* Rute untuk halaman Literasi (daftar artikel) */}
         <Route path="/literasi" element={<MainLayout activePage="literasi"><LiterasiPage /></MainLayout>} />
+        
         <Route path="/kalkulator" element={<MainLayout activePage="kalkulator"><KalkulatorPage /></MainLayout>} />
         <Route path="/kalkulator/zakat-mal" element={<MainLayout activePage="kalkulator"><ZakatMal /></MainLayout>} />
         <Route path="/kalkulator/profil-risiko" element={<MainLayout activePage="kalkulator"><ProfilRisiko /></MainLayout>} />
