@@ -1,5 +1,3 @@
-// File: src/pages/LiterasiPage.jsx
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
@@ -7,8 +5,8 @@ import { Link } from 'react-router-dom';
 const LiterasiPage = () => {
   const [showBot, setShowBot] = useState(false);
   const [articles, setArticles] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [loadingArticles, setLoadingArticles] = useState(true);
+  const [errorArticles, setErrorArticles] = useState(null);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -21,7 +19,7 @@ const LiterasiPage = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        setLoading(true);
+        setLoadingArticles(true);
         const apiKey = 'cashmate_react_internal_secret_123xyz';
         const response = await axios.get('http://localhost:3000/api/articles', {
           headers: {
@@ -31,9 +29,9 @@ const LiterasiPage = () => {
         setArticles(response.data.data);
       } catch (err) {
         console.error('Error fetching articles:', err);
-        setError('Gagal memuat artikel. Pastikan server backend AdonisJS berjalan di http://localhost:3000 dan konfigurasi CORS sudah benar.');
+        setErrorArticles('Gagal memuat artikel. Pastikan server backend AdonisJS berjalan di http://localhost:3000 dan konfigurasi CORS sudah benar.');
       } finally {
-        setLoading(false);
+        setLoadingArticles(false);
       }
     };
 
@@ -74,15 +72,31 @@ const LiterasiPage = () => {
         )}
       </div>
 
+      <div style={{ textAlign: 'center', marginTop: '30px' }}>
+      <Link to="/infografis" style={{
+        display: 'inline-block',
+        padding: '10px 20px',
+        backgroundColor: '#003f5c',
+        color: 'white',
+        borderRadius: '8px',
+        textDecoration: 'none',
+        fontWeight: 'bold',
+        boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+        transition: 'background-color 0.3s ease'
+      }}>
+        Lihat Infografis Literasi Keuangan
+      </Link>
+    </div>
+
       {/* Artikel edukasi dipindahkan ke bawah chatbot */}
       <div style={{ padding: "20px", backgroundColor: "#f9f9f9", borderRadius: "12px", boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
         <h2 style={{ fontSize: "20px", fontWeight: "bold", color: "#3c40d0", marginBottom: "15px" }}>
           Artikel Edukasi Keuangan
         </h2>
-        {loading ? (
+        {loadingArticles ? (
           <p style={{ textAlign: "center", color: "#666" }}>Memuat artikel...</p>
-        ) : error ? (
-          <p style={{ textAlign: "center", color: "red" }}>{error}</p>
+        ) : errorArticles ? (
+          <p style={{ textAlign: "center", color: "red" }}>{errorArticles}</p>
         ) : articles.length === 0 ? (
           <p style={{ textAlign: "center", color: "#666" }}>Belum ada artikel yang tersedia.</p>
         ) : (

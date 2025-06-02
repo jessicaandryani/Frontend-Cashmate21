@@ -17,7 +17,8 @@ import KalkulatorPage from "./pages/KalkulatorPage";
 import ZakatMal from './pages/kalkulator/ZakatMal';
 import ProfilRisiko from './pages/kalkulator/ProfilRisiko';
 import Investasi from './pages/kalkulator/Investasi';
-import ArticleDetailPage from './pages/ArticleDetailPage'; // Import ArticleDetailPage
+import ArticleDetailPage from './pages/ArticleDetailPage';
+import InfografisPage from './pages/InfografisPage'; // Import InfografisPage yang baru
 
 import MainLayout from './components/MainLayout';
 
@@ -41,6 +42,9 @@ function App() {
         <Route path="/literasi/:id" element={<MainLayout activePage="literasi"><ArticleDetailPage /></MainLayout>} />
         {/* Rute untuk halaman Literasi (daftar artikel) */}
         <Route path="/literasi" element={<MainLayout activePage="literasi"><LiterasiPage /></MainLayout>} />
+        
+        {/* Rute baru untuk halaman Infografis */}
+        <Route path="/infografis" element={<MainLayout activePage="literasi"><InfografisPage /></MainLayout>} />
         
         <Route path="/kalkulator" element={<MainLayout activePage="kalkulator"><KalkulatorPage /></MainLayout>} />
         <Route path="/kalkulator/zakat-mal" element={<MainLayout activePage="kalkulator"><ZakatMal /></MainLayout>} />
