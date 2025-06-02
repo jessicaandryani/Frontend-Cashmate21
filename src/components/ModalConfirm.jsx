@@ -1,67 +1,64 @@
-import React from 'react';
+"use client"
+import { AlertTriangle, X } from "lucide-react"
 
 const ModalConfirm = ({
   title,
   message,
   onConfirm,
   onCancel,
-  confirmLabel = "✅ Hapus",
-  cancelLabel = "❌ Batal",
-  titleColor = '#333',
-  messageColor = '#555'
+  confirmLabel = "Konfirmasi",
+  cancelLabel = "Batal",
+  titleColor = "#ef4444",
+  messageColor = "#666",
 }) => {
   return (
-    <div style={overlayStyle}>
-      <div style={modalStyle}>
-        <h2 style={{ marginBottom: '10px', color: titleColor }}>{title}</h2>
-        <p style={{ marginBottom: '20px', color: messageColor }}>{message}</p>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-          <button onClick={onCancel} style={cancelButtonStyle}>{cancelLabel}</button>
-          <button onClick={onConfirm} style={confirmButtonStyle}>{confirmLabel}</button>
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 overflow-hidden">
+        {/* Header */}
+        <div className="p-6 border-b border-gray-100">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+              <AlertTriangle className="w-5 h-5 text-red-500" />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold" style={{ color: titleColor }}>
+                {title}
+              </h3>
+            </div>
+            <button
+              onClick={onCancel}
+              className="ml-auto p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
+            >
+              <X className="w-5 h-5 text-gray-400" />
+            </button>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-6">
+          <p className="text-sm leading-relaxed" style={{ color: messageColor }}>
+            {message}
+          </p>
+        </div>
+
+        {/* Actions */}
+        <div className="p-6 pt-0 flex gap-3">
+          <button
+            onClick={onCancel}
+            className="flex-1 px-4 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-200 transition-all duration-200 font-medium"
+          >
+            {cancelLabel}
+          </button>
+          <button
+            onClick={onConfirm}
+            className="flex-1 px-4 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 transition-all duration-200 font-medium"
+          >
+            {confirmLabel}
+          </button>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-
-const overlayStyle = {
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  width: '100vw',
-  height: '100vh',
-  backgroundColor: 'rgba(0, 0, 0, 0.4)',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  zIndex: 9999,
-};
-
-const modalStyle = {
-  backgroundColor: 'white',
-  padding: '30px 40px',
-  borderRadius: '12px',
-  boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
-  textAlign: 'center',
-};
-
-const cancelButtonStyle = {
-  backgroundColor: '#ccc',
-  color: '#333',
-  padding: '10px 20px',
-  border: 'none',
-  borderRadius: '6px',
-  cursor: 'pointer',
-};
-
-const confirmButtonStyle = {
-  backgroundColor: 'black',
-  color: 'white',
-  padding: '10px 20px',
-  border: 'none',
-  borderRadius: '6px',
-  cursor: 'pointer',
-};
-
-export default ModalConfirm;
+export default ModalConfirm
