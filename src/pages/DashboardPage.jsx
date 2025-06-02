@@ -176,7 +176,7 @@ const DashboardPage = () => {
             className={`bg-gradient-to-br ${
               saldoAkhir >= 0
                 ? "from-purple-500 to-purple-600"
-                : "from-orange-500 to-orange-600"
+                : "from-yellow-500 to-yellow-600"
             } rounded-2xl shadow-xl p-6 text-white`}
           >
             <div className="flex items-center justify-between mb-4">
