@@ -2,14 +2,7 @@
 
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import {
-  Home,
-  BookOpen,
-  BarChart3,
-  Calculator,
-  LogOut,
-  User,
-} from "lucide-react";
+import { Home, BookOpen, BarChart3, Calculator, LogOut, User } from 'lucide-react';
 import axios from "axios";
 import ModalConfirm from "./ModalConfirm";
 
@@ -70,7 +63,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="w-64 bg-gradient-to-b from-purple-600 to-purple-700 text-white min-h-screen flex flex-col shadow-xl relative">
+      <div className="sticky top-0 w-64 bg-gradient-to-b from-purple-600 to-purple-700 text-white h-screen flex flex-col shadow-xl">
         {/* Header */}
         <div className="p-6 border-b border-purple-500/30">
           <h2 className="text-2xl font-bold text-white mb-1">CashMate</h2>
